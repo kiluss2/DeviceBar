@@ -8,7 +8,8 @@ STAGE="build/dmg"
 APP="$STAGE/DeviceBar.app"
 DMG="build/DeviceBar.dmg"
 rm -rf "$STAGE" "$DMG"
-mkdir -p "$APP/Contents/MacOS"
+mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
+cp Resources/AppIcon.icns "$APP/Contents/Resources/AppIcon.icns"
 cp "$(swift build -c release --show-bin-path)/DeviceBar" "$APP/Contents/MacOS/DeviceBar"
 cat > "$APP/Contents/Info.plist" <<'PLIST'
 <?xml version="1.0" encoding="UTF-8"?>
@@ -17,6 +18,7 @@ cat > "$APP/Contents/Info.plist" <<'PLIST'
 <dict>
     <key>CFBundleIdentifier</key><string>local.sonmacmini.DeviceBar</string>
     <key>CFBundleName</key><string>DeviceBar</string>
+    <key>CFBundleIconFile</key><string>AppIcon</string>
     <key>CFBundleExecutable</key><string>DeviceBar</string>
     <key>CFBundlePackageType</key><string>APPL</string>
     <key>CFBundleShortVersionString</key><string>0.1</string>

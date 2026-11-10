@@ -8,7 +8,7 @@ struct DeviceBarApp: App {
         MenuBarExtra {
             MenuContent(store: store)
         } label: {
-            Image(systemName: store.busyAction == nil ? "iphone" : "iphone.badge.play")
+            Image(nsImage: store.busyAction == nil ? MenuBarIcon.idle : MenuBarIcon.busy)
                 .task { await store.startAutoRefresh() }
         }
         .menuBarExtraStyle(.menu)
