@@ -11,7 +11,7 @@ struct DeviceBarApp: App {
             Image(nsImage: store.busyAction == nil ? MenuBarIcon.idle : MenuBarIcon.busy)
                 .task { await store.startAutoRefresh() }
         }
-        .menuBarExtraStyle(.menu)
+        .menuBarExtraStyle(.window)
 
         Window("DeviceBar", id: MainWindow.id) {
             MainWindow(store: store)
