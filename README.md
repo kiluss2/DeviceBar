@@ -19,7 +19,25 @@ the same actions, editable coordinates and a log.
 - An iPhone paired with this Mac, with Developer Mode on (Settings › Privacy & Security ›
   Developer Mode). Some actions, such as location and clipboard, need the iPhone unlocked.
 
-## Install from a .dmg
+## Install
+
+### Quick install (one line)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/kiluss2/DeviceBar/main/scripts/install-release.sh | bash
+```
+
+Downloads the latest release (`DeviceBar.dmg`), installs `~/Applications/DeviceBar.app` and opens
+it. Run the same line again to update. A file downloaded with `curl` is not marked as downloaded
+from the internet, so macOS opens the app without the "Apple could not verify…" prompt.
+
+Remove:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/kiluss2/DeviceBar/main/scripts/uninstall.sh | bash
+```
+
+### Install from a .dmg
 
 1. Download `DeviceBar.dmg` (or build one yourself, see below) and open it.
 2. Drag **DeviceBar** onto **Applications**.
@@ -49,7 +67,13 @@ Builds a release version and installs it to `~/Applications/DeviceBar.app`. Open
 ./make-dmg.sh
 ```
 
-Builds `build/DeviceBar.dmg`, a drag-to-Applications installer you can share with others.
+Builds `build/DeviceBar.dmg`, a drag-to-Applications installer you can share with others. To
+publish it, attach it to a release; the quick install always takes the latest release's
+`DeviceBar.dmg`:
+
+```bash
+gh release create v0.3 build/DeviceBar.dmg --title "DeviceBar 0.3" --notes "..."
+```
 
 Both scripts need Xcode (Swift 6 toolchain). For development you can also run `swift run`.
 
@@ -60,5 +84,5 @@ DeviceBar.
 
 ## Uninstall
 
-Quit DeviceBar from its menu, then delete `DeviceBar.app` from Applications (or
-`~/Applications`).
+Run the remove line above, or quit DeviceBar from its menu and delete `DeviceBar.app` from
+Applications (or `~/Applications`).
