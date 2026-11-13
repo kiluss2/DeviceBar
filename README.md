@@ -31,6 +31,9 @@ Downloads the latest release (`DeviceBar.dmg`), installs `~/Applications/DeviceB
 it. Run the same line again to update. A file downloaded with `curl` is not marked as downloaded
 from the internet, so macOS opens the app without the "Apple could not verify…" prompt.
 
+Or download `DeviceBar.dmg` from the [Releases](https://github.com/kiluss2/DeviceBar/releases/latest)
+page and install it by hand, see [Install from a .dmg](#install-from-a-dmg) below.
+
 Remove:
 
 ```bash
